@@ -36,33 +36,36 @@ Não pode vender a prazo para clientes sem cadastro.
 **RN05 — Produto precisa de dados básicos**  
 Nome, preço, unidade e fabricante são obrigatórios para o produto.
 
+**RN06 — Não finalizar vendas vazias**
+O sistema deve barrar uma venda sem itens.
+
 ---
 
 # 3. Requisitos Funcionais (mínimo: 8)
 Liste os requisitos funcionais do seu MVP.
 
-**RF01 —**  
-**RF02 —**  
-**RF03 —**  
-**RF04 —**  
-**RF05 —**  
-**RF06 —**  
-**RF07 —**  
-**RF08 —**  
-
-(Adicione mais se quiser.)
+**RF01 — Cadastrar cliente no sistema da farmacia**
+**RF02 — Buscar cliente cadastrados**  
+**RF03 — Buscar por produto em estoque**  
+**RF04 — Ver estoque, itens e quantidades disponiveis** 
+**RF05 — Registrar venda no sistema** 
+**RF06 — Adicionar produtos nas vendas**  
+**RF07 — Finalizar a venda do produto**  
+**RF08 — Registrar venda a prazo no sistema**  
+**RF09 — Gerar conta a receber depois de uma venda a prazo**  
+**RF08 — Registrar venda a prazo no sistema**  
+**RF10 — Remover produtos da venda** 
+**RF11 — Cancelar venda**  
 
 ---
 
 # 🛡 4. Requisitos Não Funcionais (mínimo: 4)
 Liste os RNFs do sistema conforme seu MVP.
 
-**RNF01 —**  
-**RNF02 —**  
-**RNF03 —**  
-**RNF04 —**  
-
-(Adicione mais se quiser.)
+**RNF01 — O sistema deve ser rápido, sem travamentos durante uso**  
+**RNF02 — Deve ter uma interface simples, facilitando o uso**  
+**RNF03 — Só usuarios com autorização podem usar**  
+**RNF04 — Não deve haver perda, nem corrompimento de dados dentro do sistema**  
 
 ---
 
