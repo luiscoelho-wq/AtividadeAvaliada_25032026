@@ -1,7 +1,7 @@
 # Avaliação — Engenharia de Software
 **Sistema Integrado de Gestão de Farmácia — MVP Definido pelo Estudante**
 
-Aluno: Luís Felipe Coelho
+Aluno: Luís Felipe Coelho  
 RA: 25001003  
 Data: 25/03/2026 
 
@@ -18,8 +18,7 @@ Escolhi dividir dessa forma, pois a venda é a função mais usada no sistema e 
 
 ---
 
-# 2. Regras de Negócio (mínimo: 5)
-Liste e descreva **cada RN** de forma clara.
+# 2. Regras de Negócio 
 
 **RN01 — Não vender produtos que não está em estoque**  
 Caso não tiver a quantidade do produto requerida, a venda não pode ser feita.
@@ -41,8 +40,7 @@ O sistema deve barrar uma venda sem itens.
 
 ---
 
-# 3. Requisitos Funcionais (mínimo: 8)
-Liste os requisitos funcionais do seu MVP.
+# 3. Requisitos Funcionais 
 
 **RF01 — Cadastrar cliente no sistema da farmacia**
 **RF02 — Buscar cliente cadastrados**  
@@ -59,8 +57,7 @@ Liste os requisitos funcionais do seu MVP.
 
 ---
 
-# 🛡 4. Requisitos Não Funcionais (mínimo: 4)
-Liste os RNFs do sistema conforme seu MVP.
+# 🛡 4. Requisitos Não Funcionais 
 
 **RNF01 — O sistema deve ser rápido, sem travamentos durante uso**  
 **RNF02 — Deve ter uma interface simples, facilitando o uso**  
@@ -69,43 +66,60 @@ Liste os RNFs do sistema conforme seu MVP.
 
 ---
 
-# 5. Casos de Uso (mínimo: 10)
-### Inserir **diagrama de casos de uso geral**, demonstrando claramente:
-- os 10 casos
-- relação entre eles e atores
-- pelo menos 3 includes
-- pelo menos 3 extends
+# 5. Casos de Uso 
+
+<img width="749" height="521" alt="image" src="https://github.com/user-attachments/assets/95338f92-c44b-4644-a303-4fbec5143131" />
 
 ---
-
 # 6. Documentação dos Casos de Uso
-Para **cada caso de uso**, utilize o template abaixo:
 ---
+## **UC01 — Cadastro de clientes**
 
-## **UCXX — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es): Atendentes**  
+**Descrição: Possibilita o cadastro de novos usuários no sistema**  
+**Pré-condições: Atendente estar logado no sistema**  
+**Pós-condições: Cliente cadastrado com sucesso**
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1.  Atendente acessa a tela de cadastro.
+2.  Preenche as informações que o sistema exige do cliente.
+3.  Finaliza o cadastro.
+4.  Sistema valida as informações dadas.
+5.  Sistema registra o cliente.  
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- FA01 —  Informações obrigatórias em falta > Sistema exige correção.
+- FA02 —  Cliente já tem cadastro > Sistema informa erro
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
+- **Include: -** 
+- **Extend: -**  
 
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+<img width="236" height="257" alt="image" src="https://github.com/user-attachments/assets/31f02836-383e-45e9-8ac6-17a7b2e761ec" />
 
 ---
 
-> Repita essa estrutura para **todos os seus casos de uso** (mínimo 10).
+## **UC02 — Consulta de clientes**
+**Ator(es): Atendentes**  
+**Descrição: Permite a busca de clientes no sistema**  
+**Pré-condições: Cliente cadastrado**  
+**Pós-condições: Dados são exibidos na tela**  
+
+### Fluxo Principal
+1.  Atendente acessa a busca dentro da aplicação.
+2.  Informa nome ou CPF do cliente.
+3.  Sistema realiza busca do cliente.
+4.  O resultado aparece.  
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Cliente não encontrado > Sistema informa 
+
+### Relacionamentos
+- **Include: -** 
+- **Extend: UC01** 
+
+<img width="286" height="312" alt="image" src="https://github.com/user-attachments/assets/19ffce3e-8f76-4b08-8303-8855a3a2d29d" />
+
+---
 
 
