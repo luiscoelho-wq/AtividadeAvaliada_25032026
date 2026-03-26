@@ -1,5 +1,5 @@
 # Avaliação — Engenharia de Software
-**Sistema Integrado de Gestão de Farmácia — MVP Definido pelo Estudante**
+**Sistema Integrado de Gestão de Farmácia — MVP de vendas de uma farmácia**
 
 Aluno: Luís Felipe Coelho  
 RA: 25001003  
@@ -101,7 +101,7 @@ O sistema deve barrar uma venda sem itens.
 ---
 
 ## **UC02 — Consulta de clientes**
-**Ator(es): Atendente**  
+**Ator(es): Atendente**    
 **Descrição: Permite a busca de clientes no sistema**  
 **Pré-condições: Cliente cadastrado**  
 **Pós-condições: Dados são exibidos na tela**  
@@ -187,13 +187,150 @@ O sistema deve barrar uma venda sem itens.
 - FA02 —  Venda cancelada
 
 ### Relacionamentos
-- **Include: -** 
-- **Extend: UC11** 
+- **Include: - UC06** 
+- **Extend: - UC11** 
 
 ---
 <img width="161" height="341" alt="image" src="https://github.com/user-attachments/assets/0282f331-fda4-45a1-9202-801bfd08d75e" />
 
 ---
 
+## **UC06 — Adicionar produtos na venda**
+**Ator(es): Atendente**  
+**Descrição: Itens são adicionados na venda**  
+**Pré-condições: Venda já ter sido iniciada**  
+**Pós-condições: Produto adicionado**  
+
+### Fluxo Principal
+1.  O produto é selecionado.
+2.  Sistema consulta esse produto.
+3.  O estoque é verificado.
+4.  Produto adiconado.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Sem estoque > Sistema avisa > Venda cancelada 
+
+### Relacionamentos
+- **Include: UC03, UC04** 
+- **Extend: -** 
+
+---
+<img width="219" height="367" alt="image" src="https://github.com/user-attachments/assets/bfd49978-6ad6-479d-9b22-8d7ad6ff5b84" />
+
+---
+
+## **UC07 — Venda finalizada**
+**Ator(es): Atendente**  
+**Descrição: A venda é concluida**  
+**Pré-condições: Venda ter itens adicionados**  
+**Pós-condições: Produtos vendidos**  
+
+### Fluxo Principal
+1.  Venda é finalizada pelo atendente no sistema.
+2.  Sistema calcula o valor total.
+3.  Comprovante é liberado pelo sistema.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Venda a prazo > Conta a receber é gerada
+- FA02 —  
+
+### Relacionamentos
+- **Include: UC10** 
+- **Extend: UC08** 
+
+---
+<img width="266" height="312" alt="image" src="https://github.com/user-attachments/assets/096663db-4d56-4c80-99cd-23382ad6714a" />
+
+---
+
+## **UC08 — Registro de venda a prazo**
+**Ator(es): Atendente**  
+**Descrição: A venda a prazo é criada**  
+**Pré-condições: Cliente cadastrado no sistema**  
+**Pós-condições: Conta a receber gerada**  
+
+### Fluxo Principal
+1.  Seleciona a opção "a prazo" durante o pagamento.
+2.  Sistema verifica se o cliente está cadastrado.
+3.  Finaliza a venda.
+4.  Gera a conta a receber.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Cliente não cadastrado > Venda cancelada 
+
+### Relacionamentos
+- **Include: UC09** 
+- **Extend: UC07** 
+
+---
+<img width="111" height="251" alt="image" src="https://github.com/user-attachments/assets/1801c6ce-405b-493a-9a7f-d54cc1b5c666" />
+
+---
+
+## **UC09 — Conta a receber é gerada**
+**Ator(es): Sistema**  
+**Descrição: Cria conta a receber após a venda com prazo**  
+**Pré-condições: Venda a prazo escolhida**  
+**Pós-condições: Conta é registrada no sistema**  
+
+### Fluxo Principal
+1.  Recebe os dados da venda.
+2.  Registra uma conta a receber no sistema.
+3.  Confirma essa conta
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Erro ao regsitrar > Venda cancelada
+
+### Relacionamentos
+- **Include: -** 
+- **Extend: -** 
+
+---
+<img width="127" height="248" alt="image" src="https://github.com/user-attachments/assets/2b66d6dd-0547-45c6-aa38-85818a10ac32" />
+
+---
+
+## **UC10 — Emissão de comprovante**
+**Ator(es): Sistema**  
+**Descrição: O comprovante é gerado pelo sistema**  
+**Pré-condições: Venda finalizada**  
+**Pós-condições: Comprovante emitido**  
+
+### Fluxo Principal
+1.  Recebe os dados de venda.
+2.  O comprovante é gerado.
+3.  O comprovante é exibido.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Falha na emissão > Sistema avisa
+
+### Relacionamentos
+- **Include: -** 
+- **Extend: -** 
+
+---
+<img width="147" height="193" alt="image" src="https://github.com/user-attachments/assets/f709111d-e0f1-458a-88b9-e0ca09bc6fa3" />
+
+---
+## **UC11 — Cancelar venda**
+**Ator(es): Atendente**  
+**Descrição: Cancela venda em andamento**  
+**Pré-condições: Venda iniciada**  
+**Pós-condições: Venda cancelada**  
+
+### Fluxo Principal
+1.  O cancelamento é solicitado.
+2.  Sistema cancela a venda.
+3.  O cancelamento é confirmado.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Venda já finalizada > Não é possível cancelar a venda 
+
+### Relacionamentos
+- **Include:** 
+- **Extend: UC05** 
+
+---
+<img width="167" height="248" alt="image" src="https://github.com/user-attachments/assets/94881254-9f79-45db-bd6e-2e0bbe1544b1" />
 
 
