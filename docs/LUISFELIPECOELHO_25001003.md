@@ -75,7 +75,7 @@ O sistema deve barrar uma venda sem itens.
 ---
 ## **UC01 — Cadastro de clientes**
 
-**Ator(es): Atendentes**  
+**Ator(es): Atendente**  
 **Descrição: Possibilita o cadastro de novos usuários no sistema**  
 **Pré-condições: Atendente estar logado no sistema**  
 **Pós-condições: Cliente cadastrado com sucesso**
@@ -95,12 +95,13 @@ O sistema deve barrar uma venda sem itens.
 - **Include: -** 
 - **Extend: -**  
 
+---
 <img width="236" height="257" alt="image" src="https://github.com/user-attachments/assets/31f02836-383e-45e9-8ac6-17a7b2e761ec" />
 
 ---
 
 ## **UC02 — Consulta de clientes**
-**Ator(es): Atendentes**  
+**Ator(es): Atendente**  
 **Descrição: Permite a busca de clientes no sistema**  
 **Pré-condições: Cliente cadastrado**  
 **Pós-condições: Dados são exibidos na tela**  
@@ -118,8 +119,81 @@ O sistema deve barrar uma venda sem itens.
 - **Include: -** 
 - **Extend: UC01** 
 
+---
 <img width="286" height="312" alt="image" src="https://github.com/user-attachments/assets/19ffce3e-8f76-4b08-8303-8855a3a2d29d" />
 
 ---
+
+## **UC03 — Consulta de produtos**
+**Ator(es): Atendete**  
+**Descrição: Premite a busca por produtos no sistema**  
+**Pré-condições: Sistema ativo**  
+**Pós-condições: Produto exibido**  
+
+### Fluxo Principal
+1.  Acessa a consulta de estoque.
+2.  Informa o produto que deseja.
+3.  Sistema busca o produto.
+4.  Exibe o resultado buscado.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Produto não encontrado > Sistema informa
+
+### Relacionamentos
+- **Include: -** 
+- **Extend: -** 
+
+---
+<img width="98" height="191" alt="image" src="https://github.com/user-attachments/assets/ae90a893-063d-4434-899c-d2f15cb4fadf" />
+
+---
+
+## **UC04 — Verificação de estoque**
+**Ator(es): Atendente**  
+**Descrição: Consulta dos itens e quantridades disponíveis**  
+**Pré-condições: Produto estar em estoque**  
+**Pós-condições: Quantidade exibida**  
+
+### Fluxo Principal
+1.  Seleciona o produto que deseja.
+2.  Sistema analisa o estoque.
+3.  A quantidade é exibida.
+
+### Fluxos Alternativos / Exceções
+- FA01 — Não há estoque do produto > Sistema envia um aviso
+
+### Relacionamentos
+- **Include: UC03** 
+- **Extend: -** 
+
+---
+<img width="146" height="248" alt="image" src="https://github.com/user-attachments/assets/45f574a7-7d09-4f11-9310-d190ef186f84" />
+
+---
+
+## **UC05 — Registro de venda**
+**Ator(es): Atendente**  
+**Descrição: Inicia uma venda e registra ela**  
+**Pré-condições: Sistema ativo**  
+**Pós-condições: Venda em processo**  
+
+### Fluxo Principal
+1.  Uma venda é iniciada.
+2.  Sistema registra essa venda.
+3.  Pode-se adicionar produtos nessa venda.
+
+### Fluxos Alternativos / Exceções
+- FA01 —  Produto sem estoque > Venda cancelada
+- FA02 —  Venda cancelada
+
+### Relacionamentos
+- **Include: -** 
+- **Extend: UC11** 
+
+---
+<img width="161" height="341" alt="image" src="https://github.com/user-attachments/assets/0282f331-fda4-45a1-9202-801bfd08d75e" />
+
+---
+
 
 
